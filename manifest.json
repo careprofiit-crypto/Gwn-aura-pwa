@@ -65,14 +65,14 @@
   ],
   "screenshots": [
     {
-      "src": "https://raw.githubusercontent.com/careprofiit-crypto/Gwn-aura-pwa/main/mobile-screen.png",
-      "sizes": "512x512",
+      "src": "https://raw.githubusercontent.com/careprofiit-crypto/Gwn-aura-pwa/main/192.png",
+      "sizes": "192x192",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "GWN Aura Mobile App"
     },
     {
-      "src": "https://raw.githubusercontent.com/careprofiit-crypto/Gwn-aura-pwa/main/desktop-screen.png",
+      "src": "https://raw.githubusercontent.com/careprofiit-crypto/Gwn-aura-pwa/main/512.png",
       "sizes": "512x512",
       "type": "image/png",
       "form_factor": "wide",
