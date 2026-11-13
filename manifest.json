@@ -2,8 +2,8 @@
   "name": "GWN Aura",
   "short_name": "GWN Aura",
   "description": "The smarter way to move your money - fast transfers, airtime, bills, and savings.",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "https://gwnaura-app.blogspot.com/",
+  "scope": "https://gwnaura-app.blogspot.com/",
   "id": "gwnaura",
   "dir": "ltr",
   "lang": "en",
@@ -22,7 +22,7 @@
   "related_applications": [
     {
       "platform": "webapp",
-      "url": "https://gwn-aura-pi.vercel.app/manifest.json"
+      "url": "https://careprofiit-crypto.github.io/Gwn-aura-pwa/manifest.json"
     }
   ],
   "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
@@ -39,25 +39,25 @@
   },
   "icons": [
     {
-      "src": "/192.png",
+      "src": "https://careprofiit-crypto.github.io/Gwn-aura-pwa/192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/192.png",
+      "src": "https://careprofiit-crypto.github.io/Gwn-aura-pwa/192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/512.png",
+      "src": "https://careprofiit-crypto.github.io/Gwn-aura-pwa/512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/512.png",
+      "src": "https://careprofiit-crypto.github.io/Gwn-aura-pwa/512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
@@ -68,10 +68,10 @@
       "name": "Send Money",
       "short_name": "Send",
       "description": "Transfer funds instantly",
-      "url": "/?action=send",
+      "url": "https://gwnaura-app.blogspot.com/?action=send",
       "icons": [
         {
-          "src": "/192.png",
+          "src": "https://careprofiit-crypto.github.io/Gwn-aura-pwa/192.png",
           "sizes": "192x192",
           "type": "image/png"
         }
@@ -81,10 +81,10 @@
       "name": "Fund Account",
       "short_name": "Fund",
       "description": "Top up your wallet balance",
-      "url": "/?action=fund",
+      "url": "https://gwnaura-app.blogspot.com/?action=fund",
       "icons": [
         {
-          "src": "/192.png",
+          "src": "https://careprofiit-crypto.github.io/Gwn-aura-pwa/192.png",
           "sizes": "192x192",
           "type": "image/png"
         }
@@ -93,14 +93,14 @@
   ],
   "screenshots": [
     {
-      "src": "/512.png",
+      "src": "https://careprofiit-crypto.github.io/Gwn-aura-pwa/512.png",
       "sizes": "512x512",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "GWN Aura Mobile"
     },
     {
-      "src": "/512.png",
+      "src": "https://careprofiit-crypto.github.io/Gwn-aura-pwa/512.png",
       "sizes": "512x512",
       "type": "image/png",
       "form_factor": "wide",
@@ -108,7 +108,7 @@
     }
   ],
   "share_target": {
-    "action": "/share",
+    "action": "https://gwnaura-app.blogspot.com/share",
     "method": "GET",
     "params": {
       "title": "title",
@@ -118,7 +118,7 @@
   },
   "file_handlers": [
     {
-      "action": "/open-file",
+      "action": "https://gwnaura-app.blogspot.com/open-file",
       "accept": {
         "application/pdf": [
           ".pdf"
@@ -132,11 +132,11 @@
   "protocol_handlers": [
     {
       "protocol": "web+gwnaura",
-      "url": "/?pay=%s"
+      "url": "https://gwnaura-app.blogspot.com/?pay=%s"
     }
   ],
   "note_taking": {
-    "new_note_url": "/?action=new-note"
+    "new_note_url": "https://gwnaura-app.blogspot.com/?action=new-note"
   },
   "edge_side_panel": {
     "preferred_width": 400
@@ -152,7 +152,7 @@
       "type": "application/json",
       "screenshots": [
         {
-          "src": "/512.png",
+          "src": "https://careprofiit-crypto.github.io/Gwn-aura-pwa/512.png",
           "sizes": "512x512",
           "label": "GWN Aura Widget"
         }
