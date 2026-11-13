@@ -18,18 +18,65 @@
   "categories": [
     "finance"
   ],
+  "prefer_related_applications": false,
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://careprofiit-crypto.github.io/Gwn-aura-pwa/manifest.json"
+    }
+  ],
+  "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
+  "scope_extensions": [
+    {
+      "origin": "https://www.gwnaura.dpdns.org"
+    },
+    {
+      "origin": "https://gwn-aura-pi.vercel.app"
+    }
+  ],
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
   "icons": [
     {
       "src": "https://raw.githubusercontent.com/careprofiit-crypto/Gwn-aura-pwa/main/192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "https://raw.githubusercontent.com/careprofiit-crypto/Gwn-aura-pwa/main/192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
       "src": "https://raw.githubusercontent.com/careprofiit-crypto/Gwn-aura-pwa/main/512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "https://raw.githubusercontent.com/careprofiit-crypto/Gwn-aura-pwa/main/512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "https://raw.githubusercontent.com/careprofiit-crypto/Gwn-aura-pwa/main/mobile-screen.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "GWN Aura Mobile App"
+    },
+    {
+      "src": "https://raw.githubusercontent.com/careprofiit-crypto/Gwn-aura-pwa/main/desktop-screen.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "GWN Aura Desktop App"
     }
   ],
   "shortcuts": [
@@ -59,5 +106,39 @@
         }
       ]
     }
-  ]
+  ],
+  "share_target": {
+    "action": "https://gwnaura-app.blogspot.com/share",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
+  "file_handlers": [
+    {
+      "action": "https://gwnaura-app.blogspot.com/open-file",
+      "accept": {
+        "application/pdf": [
+          ".pdf"
+        ],
+        "text/csv": [
+          ".csv"
+        ]
+      }
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+gwnaura",
+      "url": "https://gwnaura-app.blogspot.com/?pay=%s"
+    }
+  ],
+  "note_taking": {
+    "new_note_url": "https://gwnaura-app.blogspot.com/?action=new-note"
+  },
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
 }
