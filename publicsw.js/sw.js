@@ -1,27 +1,30 @@
-const CACHE_NAME = 'gwn-aura-v1';
-const ASSETS_TO_CACHE = [
+const CACHE_NAME = 'gwn-aura-cache-v2';
+const urlsToCache = [
   '/',
   '/index.html',
   'https://raw.githubusercontent.com/careprofiit-crypto/Gwn-aura-pwa/main/192.png',
   'https://raw.githubusercontent.com/careprofiit-crypto/Gwn-aura-pwa/main/512.png'
 ];
 
+// Install Event - caching assets
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS_TO_CACHE);
-    })
+    caches.open(CACHE_NAME)
+      .then((cache) => {
+        return cache.addAll(urlsToCache);
+      })
   );
   self.skipWaiting();
 });
 
+// Activate Event - clean up old caches
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((keys) => {
+    caches.keys().then((cacheNames) => {
       return Promise.all(
-        keys.map((key) => {
-          if (key !== CACHE_NAME) {
-            return caches.delete(key);
+        cacheNames.map((cacheName) => {
+          if (cacheName !== CACHE_NAME) {
+            return caches.delete(cacheName);
           }
         })
       );
@@ -30,10 +33,20 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 
+// Fetch Event - serve from cache when offline
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
-    })
+    caches.match(event.request)
+      .then((response) => {
+        if (response) {
+          return response; // Return cached asset if found
+        }
+        return fetch(event.request).catch(() => {
+          // Fallback if offline and request isn't cached
+          if (event.request.mode === 'navigate') {
+            return caches.match('/index.html');
+          }
+        });
+      })
   );
 });
