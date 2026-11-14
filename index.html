@@ -7,21 +7,22 @@
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#d4af37">
 </head>
-<body>
-  <div style="background:#0a0a0c; color:#d4af37; height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:sans-serif;">
-    <h2>GWN Aura PWA Loading...</h2>
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-            .then(reg => console.log('SW Registered'))
-            .catch(err => console.log('SW Error', err));
-        });
-      }
+<body style="background:#0a0a0c; color:#d4af37; height:100vh; margin:0; display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:sans-serif;">
+  <h2>GWN Aura</h2>
+  <p id="status">Loading your wallet...</p>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+    if (navigator.onLine) {
       setTimeout(() => {
-        window.location.href = "https://gwnaura-app.blogspot.com/";
-      }, 800);
-    </script>
-  </div>
+        window.location.replace("https://gwnaura-app.blogspot.com/");
+      }, 1500);
+    } else {
+      document.getElementById('status').textContent = "You are offline. Reconnect to access GWN Aura.";
+    }
+  </script>
 </body>
 </html>
