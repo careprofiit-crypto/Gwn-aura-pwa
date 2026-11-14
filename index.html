@@ -9,19 +9,23 @@
 </head>
 <body style="background:#0a0a0c; color:#d4af37; height:100vh; margin:0; display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:sans-serif;">
   <h2>GWN Aura</h2>
-  <p id="status">Loading your wallet...</p>
+  <p id="status">Initializing secure session...</p>
   <script>
     if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js');
-      });
-    }
-    if (navigator.onLine) {
-      setTimeout(() => {
+      navigator.serviceWorker.register('/sw.js').then((registration) => {
+        console.log('ServiceWorker registration successful');
+        // Give service worker time to activate and pass offline checks
+        setTimeout(() => {
+          if (navigator.onLine) {
+            window.location.replace("https://gwnaura-app.blogspot.com/");
+          }
+        }, 2500);
+      }).catch((err) => {
+        console.log('ServiceWorker registration failed: ', err);
         window.location.replace("https://gwnaura-app.blogspot.com/");
-      }, 1500);
+      });
     } else {
-      document.getElementById('status').textContent = "You are offline. Reconnect to access GWN Aura.";
+      window.location.replace("https://gwnaura-app.blogspot.com/");
     }
   </script>
 </body>
