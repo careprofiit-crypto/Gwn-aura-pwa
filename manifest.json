@@ -2,8 +2,8 @@
   "name": "GWN Aura",
   "short_name": "GWN Aura",
   "description": "The smarter way to move your money - fast transfers, airtime, bills, and savings.",
-  "start_url": "https://gwnaura-app.blogspot.com/",
-  "scope": "https://gwnaura-app.blogspot.com/",
+  "start_url": "https://gwn-aura-pi.vercel.app/",
+  "scope": "https://gwn-aura-pi.vercel.app/",
   "id": "gwnaura",
   "dir": "ltr",
   "lang": "en",
@@ -23,16 +23,16 @@
   "related_applications": [
     {
       "platform": "webapp",
-      "url": "https://careprofiit-crypto.github.io/Gwn-aura-pwa/manifest.json"
+      "url": "https://gwn-aura-pi.vercel.app/manifest.json"
     }
   ],
   "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
   "scope_extensions": [
     {
-      "origin": "https://gwnaura-app.blogspot.com"
+      "origin": "https://gwn-aura-pi.vercel.app"
     },
     {
-      "origin": "https://gwn-aura.dpdns.org"
+      "origin": "https://gwnaura-app.blogspot.com"
     }
   ],
   "launch_handler": {
@@ -85,7 +85,7 @@
       "name": "Send Money",
       "short_name": "Send",
       "description": "Transfer funds instantly",
-      "url": "https://gwnaura-app.blogspot.com/?action=send",
+      "url": "https://gwn-aura-pi.vercel.app/?action=send",
       "icons": [
         {
           "src": "https://raw.githubusercontent.com/careprofiit-crypto/Gwn-aura-pwa/main/192.png",
@@ -98,7 +98,7 @@
       "name": "Fund Account",
       "short_name": "Fund",
       "description": "Top up your wallet balance",
-      "url": "https://gwnaura-app.blogspot.com/?action=fund",
+      "url": "https://gwn-aura-pi.vercel.app/?action=fund",
       "icons": [
         {
           "src": "https://raw.githubusercontent.com/careprofiit-crypto/Gwn-aura-pwa/main/192.png",
@@ -114,7 +114,7 @@
       "tag": "gwn-balance-widget",
       "template": "gwn-template",
       "ms_ac_template": "https://raw.githubusercontent.com/careprofiit-crypto/Gwn-aura-pwa/main/manifest.json",
-      "data": "https://gwnaura-app.blogspot.com/",
+      "data": "https://gwn-aura-pi.vercel.app/",
       "type": "application/json",
       "screenshots": [
         {
@@ -132,7 +132,7 @@
     }
   ],
   "share_target": {
-    "action": "https://gwnaura-app.blogspot.com/share",
+    "action": "https://gwn-aura-pi.vercel.app/share",
     "method": "GET",
     "params": {
       "title": "title",
@@ -142,7 +142,7 @@
   },
   "file_handlers": [
     {
-      "action": "https://gwnaura-app.blogspot.com/open-file",
+      "action": "https://gwn-aura-pi.vercel.app/open-file",
       "accept": {
         "application/pdf": [
           ".pdf"
@@ -156,11 +156,11 @@
   "protocol_handlers": [
     {
       "protocol": "web+gwnaura",
-      "url": "https://gwnaura-app.blogspot.com/?pay=%s"
+      "url": "https://gwn-aura-pi.vercel.app/?pay=%s"
     }
   ],
   "note_taking": {
-    "new_note_url": "https://gwnaura-app.blogspot.com/?action=new-note"
+    "new_note_url": "https://gwn-aura-pi.vercel.app/?action=new-note"
   },
   "edge_side_panel": {
     "preferred_width": 400
