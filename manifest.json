@@ -32,7 +32,7 @@
       "origin": "https://gwnaura-app.blogspot.com"
     },
     {
-      "origin": "https://gwn-aura-pi.vercel.app"
+      "origin": "https://gwn-aura.dpdns.org"
     }
   ],
   "launch_handler": {
@@ -110,12 +110,19 @@
   ],
   "widgets": [
     {
-      "name": "GWN Aura Quick Balance",
-      "short_name": "Balance",
-      "description": "View your account balance instantly",
-      "tag": "balance-widget",
+      "name": "GWN Aura Balance",
+      "tag": "gwn-balance-widget",
       "template": "gwn-template",
-      "mstype": "application/json",
+      "ms_ac_template": "https://raw.githubusercontent.com/careprofiit-crypto/Gwn-aura-pwa/main/manifest.json",
+      "data": "https://gwnaura-app.blogspot.com/",
+      "type": "application/json",
+      "screenshots": [
+        {
+          "src": "https://raw.githubusercontent.com/careprofiit-crypto/Gwn-aura-pwa/main/192.png",
+          "sizes": "192x192",
+          "label": "Widget View"
+        }
+      ],
       "icons": [
         {
           "src": "https://raw.githubusercontent.com/careprofiit-crypto/Gwn-aura-pwa/main/192.png",
