@@ -2,17 +2,29 @@
   "name": "GWN Aura",
   "short_name": "GWN Aura",
   "description": "The smarter way to move your money - fast transfers, airtime, bills, and savings.",
-  "start_url": "https://gwn-aura-pi.vercel.app/",
-  "scope": "https://gwn-aura-pi.vercel.app/",
-  "id": "gwnaura",
+  "start_url": "/",
+  "scope": "/",
+  "id": "/",
   "dir": "ltr",
   "lang": "en",
-  "display": "fullscreen",
+  "display": "standalone",
   "display_override": [
     "tabbed",
-    "fullscreen",
-    "window-controls-overlay"
+    "window-controls-overlay",
+    "standalone"
   ],
+  "tab_strip": {
+    "home_tab": {
+      "scope_patterns": [
+        {
+          "pathname": "/"
+        }
+      ]
+    },
+    "new_tab_button": {
+      "url": "/"
+    }
+  },
   "orientation": "portrait",
   "background_color": "#0a0a0c",
   "theme_color": "#d4af37",
@@ -23,15 +35,13 @@
   "related_applications": [
     {
       "platform": "webapp",
-      "url": "https://gwn-aura-pi.vercel.app/manifest.json"
+      "url": "https://gwnaura.vercel.app/manifest.json"
     }
   ],
   "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
   "scope_extensions": [
     {
-      "origin": "https://gwn-aura-pi.vercel.app"
-    },
-    {
+      "type": "origin",
       "origin": "https://gwnaura-app.blogspot.com"
     }
   ],
@@ -85,7 +95,7 @@
       "name": "Send Money",
       "short_name": "Send",
       "description": "Transfer funds instantly",
-      "url": "https://gwn-aura-pi.vercel.app/?action=send",
+      "url": "/?action=send",
       "icons": [
         {
           "src": "https://raw.githubusercontent.com/careprofiit-crypto/Gwn-aura-pwa/main/192.png",
@@ -98,7 +108,7 @@
       "name": "Fund Account",
       "short_name": "Fund",
       "description": "Top up your wallet balance",
-      "url": "https://gwn-aura-pi.vercel.app/?action=fund",
+      "url": "/?action=fund",
       "icons": [
         {
           "src": "https://raw.githubusercontent.com/careprofiit-crypto/Gwn-aura-pwa/main/192.png",
@@ -111,10 +121,12 @@
   "widgets": [
     {
       "name": "GWN Aura Balance",
+      "short_name": "Balance",
+      "description": "View your GWN Aura quick actions",
       "tag": "gwn-balance-widget",
       "template": "gwn-template",
-      "ms_ac_template": "https://raw.githubusercontent.com/careprofiit-crypto/Gwn-aura-pwa/main/manifest.json",
-      "data": "https://gwn-aura-pi.vercel.app/",
+      "ms_ac_template": "https://gwnaura.vercel.app/widget.json",
+      "data": "https://gwnaura.vercel.app/manifest.json",
       "type": "application/json",
       "screenshots": [
         {
@@ -132,7 +144,7 @@
     }
   ],
   "share_target": {
-    "action": "https://gwn-aura-pi.vercel.app/share",
+    "action": "/share",
     "method": "GET",
     "params": {
       "title": "title",
@@ -142,7 +154,7 @@
   },
   "file_handlers": [
     {
-      "action": "https://gwn-aura-pi.vercel.app/open-file",
+      "action": "/open-file",
       "accept": {
         "application/pdf": [
           ".pdf"
@@ -156,11 +168,11 @@
   "protocol_handlers": [
     {
       "protocol": "web+gwnaura",
-      "url": "https://gwn-aura-pi.vercel.app/?pay=%s"
+      "url": "/?pay=%s"
     }
   ],
   "note_taking": {
-    "new_note_url": "https://gwn-aura-pi.vercel.app/?action=new-note"
+    "new_note_url": "/?action=new-note"
   },
   "edge_side_panel": {
     "preferred_width": 400
