@@ -2,31 +2,89 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>GWN Aura</title>
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#d4af37">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/careprofiit-crypto/Gwn-aura-pwa/main/192.png">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: #0a0a0c; font-family: system-ui, -apple-system, sans-serif; }
+    iframe { width: 100%; height: 100%; border: none; display: block; }
+    #pwa-banner {
+      position: fixed; bottom: 16px; left: 16px; right: 16px; z-index: 9999;
+      background: #141418; border: 1px solid #d4af37; color: #fff;
+      padding: 14px 16px; border-radius: 14px; display: none;
+      align-items: center; justify-content: space-between; gap: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    }
+    #pwa-banner strong { color: #d4af37; display: block; font-size: 14px; }
+    #pwa-banner span { font-size: 12px; color: #ccc; }
+    #pwa-install-btn {
+      background: #d4af37; color: #0a0a0c; border: none; padding: 10px 16px;
+      border-radius: 8px; font-weight: 700; font-size: 13px; cursor: pointer; white-space: nowrap;
+    }
+    #pwa-close-btn {
+      background: transparent; border: none; color: #888; font-size: 18px; cursor: pointer; padding: 4px;
+    }
+  </style>
 </head>
-<body style="background:#0a0a0c; color:#d4af37; height:100vh; margin:0; display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:sans-serif;">
-  <h2>GWN Aura</h2>
-  <p id="status">Initializing secure session...</p>
+<body>
+  <iframe src="https://gwnaura-app.blogspot.com/" allow="clipboard-read; clipboard-write; camera; microphone; geolocation"></iframe>
+
+  <div id="pwa-banner">
+    <div>
+      <strong>Install GWN Aura App</strong>
+      <span id="pwa-desc">Get faster access directly from your home screen.</span>
+    </div>
+    <button id="pwa-install-btn">Install</button>
+    <button id="pwa-close-btn" aria-label="Close">&times;</button>
+  </div>
+
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').then((registration) => {
-        console.log('ServiceWorker registration successful');
-        // Give service worker time to activate and pass offline checks
-        setTimeout(() => {
-          if (navigator.onLine) {
-            window.location.replace("https://gwnaura-app.blogspot.com/");
-          }
-        }, 2500);
-      }).catch((err) => {
-        console.log('ServiceWorker registration failed: ', err);
-        window.location.replace("https://gwnaura-app.blogspot.com/");
-      });
-    } else {
-      window.location.replace("https://gwnaura-app.blogspot.com/");
+      navigator.serviceWorker.register('/sw.js');
     }
+
+    let deferredPrompt;
+    const banner = document.getElementById('pwa-banner');
+    const desc = document.getElementById('pwa-desc');
+    const installBtn = document.getElementById('pwa-install-btn');
+    const closeBtn = document.getElementById('pwa-close-btn');
+
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+    if (!isStandalone) {
+      // Android / Desktop Chrome native prompt
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        banner.style.display = 'flex';
+      });
+
+      installBtn.addEventListener('click', async () => {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          const { outcome } = await deferredPrompt.userChoice;
+          if (outcome === 'accepted') banner.style.display = 'none';
+          deferredPrompt = null;
+        }
+      });
+
+      // iOS Safari instructions
+      if (isIOS) {
+        desc.textContent = 'Tap the Share icon below, then select "Add to Home Screen".';
+        installBtn.style.display = 'none';
+        banner.style.display = 'flex';
+      }
+    }
+
+    closeBtn.addEventListener('click', () => {
+      banner.style.display = 'none';
+    });
   </script>
 </body>
 </html>
